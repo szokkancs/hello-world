@@ -32,52 +32,77 @@ nav ul li a {
     padding: 10px 15px;
     display: block;
     font-size: 16px;
+    background: black; /* Gomb háttérszíne */
+    border-radius: 8px; /* Lekerekített sarkok hover esetén */
 }
 
 nav ul li a:hover {
     background: gray;
+    border-radius: 8px; /* Lekerekített sarkok hover esetén */
+    padding: 7px; /* Ugyanakkora maradjon a padding hover és active állapotban is */
+    box-sizing: border-box;
 }
 
 /* ======= Aktív menüpont jelölése a főmenüben ======= */
 nav ul li a.active {
-    border-bottom: 3px solid white; /* Aláhúzás az aktív menüponthoz */
+    border-bottom: 3px solid white;
     font-weight: bold;
     color: lightgray;
+    padding-bottom: 7px; /* Azért kell, hogy a border ne tolja el az elemeket */
+    box-sizing: border-box; /* Megakadályozza a méretváltozást */
 }
-
-/* ======= Aktív menüpont jelölése a legördülő menüben ======= */
-.dropdown-content li a.active {
-    background-color: lightgray; /* Színkiemelés a legördülő menüben */
-    font-weight: bold;
-    color: black;
-}
-
 
 /* ======= Legördülő menü ======= */
 .dropdown-content {
     display: none;
     position: absolute;
-    background: white;
-    min-width: 180px;
+    background: white; /* Fehér háttér */
+    min-width: 200px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     text-align: left;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    padding: 5px; /* Kis belső tér */
+        padding: 0; /* Nincs extra padding a dobozban */
+    overflow: hidden; /* Megakadályozza a túlcsordulást */
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-.dropdown-content li a {
-    color: black;
-    padding: 8px 12px;
+.dropdown-content li {
     display: block;
-    text-decoration: none;
-    font-size: 14px;
+    width: 100%;
+    margin: 0; /* Nincs extra margó */
+    padding: 0; /* Nincs extra padding */
+}
+
+/* ======= A legördülő menü szövege és hover állapota ======= */
+.dropdown-content li a {
+    color: black !important;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0; /* Törli a felesleges margót */
+    border-radius: 8px; /* Lekerekített sarkok hover esetén */
 }
 
 .dropdown-content li a:hover {
-    background: lightgray;
+    background: lightgray; /* Világosabb háttér hover esetén */
+    border-radius: 8px; /* Lekerekített sarkok hover esetén */
+}
+
+/* ======= Aktív menüpont jelölése a legördülő menüben ======= */
+.dropdown-content li a.active {
+    background-color: lightgray;
+    font-weight: bold;
+    color: black;
 }
 
 /* ======= Tartalom elrendezése ======= */
@@ -100,7 +125,7 @@ p {
     color: #555;
 }
 
-/* Lábléc */
+/* ======= Lábléc ======= */
 footer {
     background: black;
     color: white;
@@ -109,7 +134,8 @@ footer {
     margin-top: 20px;
     font-size: 14px;
 }
-/* Táblázat formázása */
+
+/* ======= Táblázat formázása ======= */
 table {
     width: 60%;
     margin: auto;
@@ -121,66 +147,33 @@ th, td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
-    gap: 10px;
-    padding: 10px; /* Kis belső térköz */
-    border-radius: 5px; /* Lekerekített sarkok */
+    border-radius: 5px;
 }
+
 th {
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
 }
 
+th:hover {
+    background-color: #45a049;
+}
+
+/* ======= Táblázat egyedi oszlopméretek ======= */
 th:nth-child(1), td:nth-child(1) { width: 15%; } /* Név oszlop */
 th:nth-child(2), td:nth-child(2) { width: 10%; } /* Kor oszlop */
 th:nth-child(3), td:nth-child(3) { width: 15%; } /* Város oszlop */
 th:nth-child(4), td:nth-child(4) { width: 20%; } /* Műveletek oszlop */
 
-th:hover 
-{
-    background-color: #45a049;
-}
+/* ======= Kattintás után a gomb színe változzon ======= */
 th span {
     font-size: 16px;
     margin-left: 5px;
     display: inline-block;
 }
 
-button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-button:hover {
-    background-color: darkred;
-}
-
-input {
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-.no-sort {
-    pointer-events: none; /* Kattinthatatlanná teszi */
-    background-color: #dddddd; /* Szürkés háttér, hogy ne tűnjön interaktívnak */
-    cursor: default; /* Alapértelmezett egérmutató, ne legyen kattintásjelző */
-}
-.ujadat{ /* Új adat hozzáadása sor alakítása */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: -70px;
-    gap: 20px; /* Kisebb távolság az inputmezők között */
-    background-color: lightgray; /* Szürke háttér */
-    padding: 10px; /* Kis belső térköz, hogy jobban mutasson */
-    border-radius: 5px; /* Lekerekített sarkok */
-}
-/* ======= Menü gomb alapstílus ======= */
+/* ======= Gombok formázása ======= */
 button {
     background-color: black;
     color: white;
@@ -192,12 +185,10 @@ button {
     transition: background 0.3s, transform 0.1s;
 }
 
-/* ======= Hover effekt (amikor fölé viszed az egeret) ======= */
 button:hover {
     background-color: gray;
 }
 
-/* ======= Kattintás (vizuális visszajelzés) ======= */
 button:active {
     background-color: darkgray;
     transform: scale(0.95);
@@ -207,4 +198,30 @@ button:active {
 button.active {
     background-color: darkgray;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ======= Űrlap és új adatok beírása ======= */
+input {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ======= Táblázat: nem kattintható fejlécek ======= */
+.no-sort {
+    pointer-events: none;
+    background-color: #dddddd;
+    cursor: default;
+}
+
+/* ======= Új adat hozzáadása sor (Űrlap dizájn) ======= */
+.ujadat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
 }

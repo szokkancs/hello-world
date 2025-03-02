@@ -1,24 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch("HTML5Menu.html") // Betöltjük a menü HTML fájlt
-    .then(response => response.text()) // A HTML tartalmat szöveggé alakítjuk
-    .then(data => {
-        document.getElementById("html5MenuContainer").innerHTML = data; // Beillesztjük az oldalba
-        activateDropdownMenu(); // Meghívjuk a dropdown funkciókat
-    })
-    .catch(error => console.error("Hiba a menü betöltésekor:", error));
+    console.log("menu.js betöltve."); // Ellenőrzéshez
 
-    function activateDropdownMenu() {
-        let dropdown = document.querySelector(".dropdown");
-        let dropdownContent = document.querySelector(".dropdown-content");
-
-        if (dropdown && dropdownContent) {
-            dropdown.addEventListener("mouseenter", function() {
-                dropdownContent.style.display = "block";
-            });
-
-            dropdown.addEventListener("mouseleave", function() {
-                dropdownContent.style.display = "none";
-            });
-        }
-    }
+    activateDropdownMenu(); // Legördülő menü aktiválása
+    activateButtonEffects(); // Kattintási effektek
 });
+
+// ======= Legördülő menü működése =======
+function activateDropdownMenu() {
+    let dropdown = document.querySelector(".dropdown");
+    let dropdownContent = document.querySelector(".dropdown-content");
+
+    if (dropdown && dropdownContent) {
+        dropdown.addEventListener("mouseenter", function() {
+            dropdownContent.style.display = "block";
+        });
+
+        dropdown.addEventListener("mouseleave", function() {
+            dropdownContent.style.display = "none";
+        });
+    }
+}
+
+// ======= Gombok kattintási effektje =======
+function activateButtonEffects() {
+    document.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", function() {
+            // Minden más gomb alapállapotba kerül
+            document.querySelectorAll("button").forEach(btn => btn.classList.remove("active"));
+
+            // Az éppen kattintott gomb aktív lesz
+            this.classList.add("active");
+        });
+    });
+}
