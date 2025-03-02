@@ -53,7 +53,9 @@ th, td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
-    border: 1px solid black;
+    gap: 10px;
+    padding: 10px; /* Kis belső térköz, hogy jobban mutasson */
+    border-radius: 5px; /* Lekerekített sarkok */
 }
 th {
     background-color: #4CAF50;
@@ -99,4 +101,14 @@ input {
     pointer-events: none; /* Kattinthatatlanná teszi */
     background-color: #dddddd; /* Szürkés háttér, hogy ne tűnjön interaktívnak */
     cursor: default; /* Alapértelmezett egérmutató, ne legyen kattintásjelző */
+}
+.ujadat{ /* Új adat hozzáadása sor alakítása */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -70px;
+    gap: 20px; /* Kisebb távolság az inputmezők között */
+    background-color: lightgray; /* Szürke háttér */
+    padding: 10px; /* Kis belső térköz, hogy jobban mutasson */
+    border-radius: 5px; /* Lekerekített sarkok */
 }
