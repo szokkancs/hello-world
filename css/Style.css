@@ -23,13 +23,13 @@ nav ul {
 
 nav ul li {
     position: relative;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
-    padding: 10px 15px;
+    padding: 7px;
     display: block;
     font-size: 16px;
     background: black; /* Gomb háttérszíne */
@@ -46,7 +46,6 @@ nav ul li a:hover {
 /* ======= Aktív menüpont jelölése a főmenüben ======= */
 nav ul li a.active {
     border-bottom: 3px solid white;
-    font-weight: bold;
     color: lightgray;
     padding-bottom: 7px; /* Azért kell, hogy a border ne tolja el az elemeket */
     box-sizing: border-box; /* Megakadályozza a méretváltozást */
@@ -64,12 +63,12 @@ nav ul li a.active {
     top: 100%;
     left: 0;
     z-index: 1000;
-    padding: 5px; /* Kis belső tér */
-        padding: 0; /* Nincs extra padding a dobozban */
+    padding: 2px; /* Kis belső tér */
     overflow: hidden; /* Megakadályozza a túlcsordulást */
 }
 
 .dropdown:hover .dropdown-content {
+    padding: 2px;
     display: block;
 }
 
@@ -77,7 +76,7 @@ nav ul li a.active {
     display: block;
     width: 100%;
     margin: 0; /* Nincs extra margó */
-    padding: 0; /* Nincs extra padding */
+    padding: 2px; /* Nincs extra padding */
 }
 
 /* ======= A legördülő menü szövege és hover állapota ======= */
@@ -95,12 +94,14 @@ nav ul li a.active {
 
 .dropdown-content li a:hover {
     background: lightgray; /* Világosabb háttér hover esetén */
+    padding: 10px;
     border-radius: 8px; /* Lekerekített sarkok hover esetén */
 }
 
 /* ======= Aktív menüpont jelölése a legördülő menüben ======= */
 .dropdown-content li a.active {
     background-color: lightgray;
+    padding: 10px;
     font-weight: bold;
     color: black;
 }
@@ -133,6 +134,9 @@ footer {
     padding: 10px;
     margin-top: 20px;
     font-size: 14px;
+    width: 100%;
+    position: relative; /* Maradjon a helyén */
+    bottom: 0;
 }
 
 /* ======= Táblázat formázása ======= */
@@ -215,7 +219,7 @@ input {
     cursor: default;
 }
 
-/* ======= Új adat hozzáadása sor (Űrlap dizájn) ======= */
+/* ======= Új adat hozzáadása sor ======= */
 .ujadat {
     display: flex;
     justify-content: center;

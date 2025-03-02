@@ -1,6 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("menu.js betöltve."); // Ellenőrzéshez
-
+document.addEventListener("DOMContentLoaded", function () {
     activateDropdownMenu(); // Legördülő menü aktiválása
     activateButtonEffects(); // Kattintási effektek
 });
@@ -11,12 +9,21 @@ function activateDropdownMenu() {
     let dropdownContent = document.querySelector(".dropdown-content");
 
     if (dropdown && dropdownContent) {
-        dropdown.addEventListener("mouseenter", function() {
+        // Ha az egér rámegy, a menü nyitva marad
+        dropdown.addEventListener("mouseenter", function () {
             dropdownContent.style.display = "block";
         });
 
-        dropdown.addEventListener("mouseleave", function() {
+        // Ha az egér elhagyja a menüt, akkor bezáródik
+        dropdown.addEventListener("mouseleave", function () {
             dropdownContent.style.display = "none";
+        });
+
+        // Ha egy menüpontra kattintunk, a menü bezáródik
+        dropdownContent.querySelectorAll("a").forEach(item => {
+            item.addEventListener("click", function () {
+                dropdownContent.style.display = "none"; // Bezárja a menüt
+            });
         });
     }
 }
@@ -24,7 +31,7 @@ function activateDropdownMenu() {
 // ======= Gombok kattintási effektje =======
 function activateButtonEffects() {
     document.querySelectorAll("button").forEach(button => {
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function () {
             // Minden más gomb alapállapotba kerül
             document.querySelectorAll("button").forEach(btn => btn.classList.remove("active"));
 
