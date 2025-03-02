@@ -26,6 +26,7 @@ nav ul li a {
     color: white;
     padding: 10px 20px;
     display: block;
+    background: black; /* Gomb háttérszíne */
 }
 
 nav ul li a:hover {
@@ -38,9 +39,11 @@ nav ul li a:hover {
     background: white;
     min-width: 200px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    top: 100%; /* A lenyíló menü közvetlenül a szülő alatt kezdődik */
+    top: 100%;
     left: 0;
-    z-index: 1000; /* Biztosítja, hogy a menü más elemek fölött legyen */
+    z-index: 1000;
+    border-radius: 5px; /* Lekerekített sarkok */
+    overflow: hidden; /* Megakadályozza az eltérő méretet */
 }
 
 .dropdown-content li {
@@ -52,6 +55,13 @@ nav ul li a:hover {
     color: black;
     padding: 10px;
     display: block;
+    background: white; /* Fehér háttér */
+    width: 100%; /* Minden gomb egyforma méretű */
+    text-align: center;
+}
+
+.dropdown-content li a:hover {
+    background: lightgray; /* Szebb hover effekt */
 }
 
 .dropdown:hover .dropdown-content,
