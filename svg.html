@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
 <head>
-    <meta charset="utf-8">
-    <title>HTML 5 genyó</title>
-    <link type="text/css" rel="stylesheet" href="css/Style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 API - Minta oldal</title>
+    <link rel="stylesheet" href="css/Style.css"> <!-- Alap CSS -->
+    <script src="js/menu.js" defer></script> <!-- A menü betöltése -->
 </head>
 <body>
     <header>
@@ -13,7 +15,7 @@
         <ul>
             <li><a href="index.html">Főoldal</a></li>
             <li><a href="home.html">Home</a></li>
-            <li><a href="contact.html"class="active">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="tablazat.html">Táblázat</a></li>
             <li class="dropdown">
                 <a href="#">HTML5 API-k ▼</a>
@@ -24,23 +26,23 @@
                     <li><a href="geolocation.html">Geolocation</a></li>
                     <li><a href="dragdrop.html">Drag & Drop</a></li>
                     <li><a href="canvas.html">Canvas</a></li>
-                    <li><a href="svg.html">SVG</a></li>
+                    <li><a href="svg.html"class="active">SVG</a></li>
         </ul>
     </nav>
-    <aside>
-        <h1>Contact</h1>
-    </aside>
-    <section>
-        <h1>Contact page</h1>
-        <article>
-            <h2>faszocsoka</h2>
-            <p>Phasellus wisi nulla...</p>
-        </article>
-        <article>
-            <h2>Aenean nummy odio orci</h2>
-            <p>Adipiscing elit praesent...</p>
-        </article>
-    </section>
-    <footer>Készítők: Szokolai János Dániel |HI20V9| és Pécsy Szabolcs+ |Neptun kód|</footer>
+
+    <main>
+        <h1>HTML5 API - Minta oldal</h1>
+        <p>Ez az oldal bemutatja a HTML5 API működését.</p>
+
+        <section>
+            <h2>API bemutatása</h2>
+            <p>Itt lesz a konkrét API működésének leírása és példák.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Készítők: Szokolai János Dániel |HI20V9| és Pécsy Szabolcs+ |Neptun kód|</p>
+    </footer>
+
 </body>
 </html>
