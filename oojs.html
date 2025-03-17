@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Főoldal</title>
-    <link rel="stylesheet" href="css/Style.css"> <!-- Alap CSS -->
+    <title>OOJS Menü</title>
+    <link rel="stylesheet" href="css/Style.css">
 </head>
 <body>
     <header>
@@ -12,13 +12,13 @@
     </header>
     <nav>
         <ul>
-            <li><a href="index.html"class="active">Főoldal</a></li>
+            <li><a href="index.html">Főoldal</a></li>
             <li><a href="home.html">Home</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="tablazat.html">Táblázat</a></li>
             <li><a href="chart.html">Chart</a></li>
             <li><a href="ajax.html">AJAX Menü</a></li>
-            <li><a href="oojs.html">OOJS Menü</a></li>
+            <li><a href="oojs.html" class="active">OOJS Menü</a></li>
             <li class="dropdown">
                 <a href="#">HTML5 API ▼</a>
                 <ul class="dropdown-content">
@@ -29,27 +29,40 @@
                     <li><a href="dragdrop.html">Drag & Drop</a></li>
                     <li><a href="canvas.html">Canvas</a></li>
                     <li><a href="svg.html">SVG</a></li>
-                </ul>
-            </li>
         </ul>
-    </nav>   
+    </nav>  
 
-    <aside>
-            <h1>Főoldal</h1>
-    </aside>
     <section>
-        <h1>Főoldal page</h1>
-        <article>
-            <h2>Valami</h2>
-            <p>Valami...</p>
-        </article>
-        <article>
-            <h2>Valamik</h2>
-            <p>Valamik...</p>
-        </article>
+        <h1>OOJS Menü - Egyetemi dolgozók</h1>
+        <table border="1">
+            <caption><h2>Kezdő tábla</h2></caption>
+            <tr>
+                <th>Név</th>
+                <th>Cím</th>
+                <th>Fizetés</th>
+                <th>Tanszék</th>
+                <th>Tantárgyak</th>
+            </tr>
+            <tbody id="oojsKezdoTabla"></tbody>
+        </table>
+
+        <br>
+        
+        <table border="1">
+            <caption><h2>Módosítások utáni tábla</h2></caption>
+            <tr>
+                <th>Név</th>
+                <th>Cím</th>
+                <th>Fizetés</th>
+                <th>Tanszék</th>
+                <th>Tantárgyak</th>
+            </tr>
+            <tbody id="oojsModositottTabla"></tbody>
+        </table>
     </section>
     <footer>
         <p>Készítette: Szokolai János Dániel & Pécsy Szabolcs | HI20V9 & ??????</p>
     </footer>
+    <script src="js/oojs.js"></script>
 </body>
 </html>

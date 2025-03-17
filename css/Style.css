@@ -1,13 +1,93 @@
-/* ======= Alapstílusok az egész weboldalhoz ======= */
+/* Általános Stílusok */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-/* ======= Navigációs menü ======= */
+h1 {
+    font-size: 26px;
+    color: #333;
+}
+
+h2 {
+    font-size: 22px;
+    color: #444;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Központi tartalom */
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: left;
+    flex: 1;
+}
+
+/* Gombok stílusa */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+/* Táblázat stílusa */
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+th:hover {
+    background-color: #0056b3;
+}
+
+tbody tr.selected {
+    background-color: #007bff !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+tbody tr:hover {
+    background-color: #dfe6e9;
+}
+/* ======= Navigációs Menü ======= */
 nav {
     background: black;
     padding: 10px;
@@ -29,33 +109,34 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: white;
-    padding: 7px;
+    padding: 10px 15px;
     display: block;
     font-size: 16px;
-    background: black; /* Gomb háttérszíne */
-    border-radius: 8px; /* Lekerekített sarkok hover esetén */
+    background: black;
+    border-radius: 5px;
+    transition: background 0.3s, cursor 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, .dropdown:hover .dropbtn {
     background: gray;
-    border-radius: 8px; /* Lekerekített sarkok hover esetén */
-    padding: 7px; /* Ugyanakkora maradjon a padding hover és active állapotban is */
-    box-sizing: border-box;
+    cursor: pointer;
 }
 
-/* ======= Aktív menüpont jelölése a főmenüben ======= */
 nav ul li a.active {
     border-bottom: 3px solid white;
     color: lightgray;
-    padding-bottom: 7px; /* Azért kell, hogy a border ne tolja el az elemeket */
-    box-sizing: border-box; /* Megakadályozza a méretváltozást */
 }
 
-/* ======= Legördülő menü ======= */
+/* HTML5 API Legördülő Menü */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
-    background: white; /* Fehér háttér */
+    background: white;
     min-width: 200px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -63,23 +144,20 @@ nav ul li a.active {
     top: 100%;
     left: 0;
     z-index: 1000;
-    padding: 2px; /* Kis belső tér */
-    overflow: hidden; /* Megakadályozza a túlcsordulást */
+    padding: 5px;
 }
 
 .dropdown:hover .dropdown-content {
-    padding: 2px;
     display: block;
 }
 
 .dropdown-content li {
     display: block;
     width: 100%;
-    margin: 0; /* Nincs extra margó */
-    padding: 2px; /* Nincs extra padding */
+    margin: 0;
+    padding: 2px;
 }
 
-/* ======= A legördülő menü szövege és hover állapota ======= */
 .dropdown-content li a {
     color: black !important;
     padding: 10px;
@@ -88,98 +166,53 @@ nav ul li a.active {
     background: white;
     width: 100%;
     box-sizing: border-box;
-    margin: 0; /* Törli a felesleges margót */
-    border-radius: 8px; /* Lekerekített sarkok hover esetén */
+    margin: 0;
+    border-radius: 5px;
+    transition: background 0.3s, cursor 0.3s;
 }
 
 .dropdown-content li a:hover {
-    background: lightgray; /* Világosabb háttér hover esetén */
-    padding: 10px;
-    border-radius: 8px; /* Lekerekített sarkok hover esetén */
+    background: lightgray;
+    cursor: pointer;
 }
 
-/* ======= Aktív menüpont jelölése a legördülő menüben ======= */
 .dropdown-content li a.active {
     background-color: lightgray;
-    padding: 10px;
     font-weight: bold;
     color: black;
 }
 
-/* ======= Tartalom elrendezése ======= */
-main {
-    max-width: 800px;
+/* CRUD Űrlap */
+#crudContainer {
+    max-width: 600px;
     margin: 20px auto;
-    padding: 20px;
     background: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
-h1 {
-    font-size: 24px;
-    color: #333;
-}
-
-p {
+#crudContainer label {
+    display: block;
     font-size: 16px;
-    color: #555;
+    margin: 10px 0 5px;
+    font-weight: bold;
 }
 
-/* ======= Lábléc ======= */
-footer {
-    background: black;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-    font-size: 14px;
+#crudContainer input {
     width: 100%;
-    position: relative; /* Maradjon a helyén */
-    bottom: 0;
-}
-
-/* ======= Táblázat formázása ======= */
-table {
-    width: 60%;
-    margin: auto;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
+    max-width: 400px;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 14px;
 }
 
-th {
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-}
-
-th:hover {
-    background-color: #45a049;
-}
-
-/* ======= Táblázat egyedi oszlopméretek ======= */
-th:nth-child(1), td:nth-child(1) { width: 15%; } /* Név oszlop */
-th:nth-child(2), td:nth-child(2) { width: 10%; } /* Kor oszlop */
-th:nth-child(3), td:nth-child(3) { width: 15%; } /* Város oszlop */
-th:nth-child(4), td:nth-child(4) { width: 20%; } /* Műveletek oszlop */
-
-/* ======= Kattintás után a gomb színe változzon ======= */
-th span {
-    font-size: 16px;
-    margin-left: 5px;
-    display: inline-block;
-}
-
-/* ======= Gombok formázása ======= */
-button {
-    background-color: black;
+/* Gombok formázása */
+#crudContainer button {
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -187,45 +220,188 @@ button {
     cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s, transform 0.1s;
+    margin-top: 10px;
 }
 
-button:hover {
-    background-color: gray;
+#crudContainer button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-button:active {
-    background-color: darkgray;
-    transform: scale(0.95);
-}
-
-/* ======= Aktív állapot (kattintás után is maradjon változás) ======= */
-button.active {
-    background-color: darkgray;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* ======= Űrlap és új adatok beírása ======= */
-input {
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #ccc;
+/* Törlés gomb */
+.delete-btn {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
     border-radius: 5px;
+    font-size: 14px;
 }
 
-/* ======= Táblázat: nem kattintható fejlécek ======= */
-.no-sort {
-    pointer-events: none;
-    background-color: #dddddd;
-    cursor: default;
+.delete-btn:hover {
+    background-color: darkred;
 }
 
-/* ======= Új adat hozzáadása sor ======= */
-.ujadat {
+/* CHART Táblázat */
+#chartContainer {
+    width: 80%;
+    max-width: 700px;
+    height: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    background-color: lightgray;
+    overflow: hidden;
+}
+#chartTable {
+    width: 55%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#chartTable .selected {
+    background-color: #700202 !important;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#chartTable tbody tr.selected {
+    background-color: #007bff !important; 
+    color: white !important; 
+    font-weight: bold;
+}
+
+#chartTable tbody tr.selected td {
+    background-color: #5c5c5c !important; 
+    color: white !important;
+}
+
+#chartTable tbody tr {
+    transition: background 0.3s ease-in-out;
+}
+
+#chartTable tbody tr:hover {
+    background-color: #dfe6e9; 
+}
+
+/* OOJS Menü Page */
+#oojsKezdoTabla, #oojsModositottTabla {
+    width: 80%;
+    border-collapse: collapse;
+    margin: auto;
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+#oojsKezdoTabla th, #oojsKezdoTabla td,
+#oojsModositottTabla th, #oojsModositottTabla td {
+    border: 1px solid black;
     padding: 10px;
+    text-align: left;
+    width: 20%;
+}
+
+#oojsKezdoTabla th, #oojsModositottTabla th {
+    background-color: #007bff;
+    color: white;
+}
+/* AJAX Táblázat Stílus */
+#ajaxTable {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+#ajaxTable th, #ajaxTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#ajaxTable th {
+    background-color: #007bff;
+    color: white;
+}
+
+#ajaxTable td {
+    background-color: #f9f9f9;
+}
+
+/* AJAX Táblázat Szerkeszthető Cella */
+#ajaxTable td[contenteditable="true"] {
+    background-color: #fff5c4;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+#ajaxTable td[contenteditable="true"]:focus {
+    border: 1px solid gray;
+    background: #f0f0f0;
     border-radius: 5px;
+}
+
+/* AJAX Műveleti Gombok */
+#ajaxTable button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* AJAX Menü Stílus */
+.ajax-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: left;
+}
+
+h2 {
+    font-size: 22px;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input {
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 14px;
+}
+
+/* Footer */
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: 30px;
 }
