@@ -405,3 +405,43 @@ footer {
     left: 0;
     margin-top: 30px;
 }
+/* React alkalmazások */
+#react-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.react-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.react-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.react-buttons button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
