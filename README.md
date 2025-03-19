@@ -1,6 +1,4 @@
 # hello-world
  Első feladat
-Szokolai János Dániel vagyok!
+Szokolai János Dániel & Pécsy Szabolcs
 
-Feladatok:
-1. máshogy nézzen ki a táblázatok rész.
