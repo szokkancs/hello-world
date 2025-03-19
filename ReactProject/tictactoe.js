@@ -1,6 +1,6 @@
 function TicTacToe() {
-    const gridSize = 6; // 6x6 tábla
-    const winCondition = 4; // 4 egyforma jel kell a győzelemhez
+    const gridSize = 6;
+    const winCondition = 4;
     const [board, setBoard] = React.useState(Array(gridSize * gridSize).fill(null));
     const [isXNext, setIsXNext] = React.useState(true);
 
@@ -18,11 +18,10 @@ function TicTacToe() {
                 let index = row * gridSize + col;
 
                 if (squares[index]) {
-                    // Ellenőrizzük a vízszintes, függőleges és átlós sorokat
-                    if (checkDirection(squares, index, 1, 0) ||  // Vízszintes
-                        checkDirection(squares, index, 0, 1) ||  // Függőleges
-                        checkDirection(squares, index, 1, 1) ||  // Átlós jobbra le
-                        checkDirection(squares, index, 1, -1)) { // Átlós balra le
+                    if (checkDirection(squares, index, 1, 0) ||
+                        checkDirection(squares, index, 0, 1) ||
+                        checkDirection(squares, index, 1, 1) ||
+                        checkDirection(squares, index, 1, -1)) {
                         return squares[index];
                     }
                 }

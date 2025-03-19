@@ -40,7 +40,6 @@ function frissitTabla(tbodyId, adatok) {
     });
 }
 
-// Objektumok létrehozása és módosítása
 var objects = [];
 objects.push(new EgyetemiDolgozo('Kovács Melinda', 'Budapest', 250000));
 objects.push(new Tanar('Kovács Izabella', 'Kecskemét', 300000, 'Informatika'));
@@ -49,7 +48,6 @@ objects.push(new Tanar('Szabó Péter', 'Szeged', 275000, 'Gépész'));
 window.onload = function() {
     frissitTabla("oojsKezdoTabla", objects);
 
-    // Módosítások végrehajtása
     objects[0].fizetesModosit(50000);
     objects[2].fizetesModosit(25000);
     objects[1].tantargy("Programozás I");

@@ -40,7 +40,6 @@ function addRow() {
     ageInput.value = "";
     cityInput.value = "";
 
-    // ✨ Az első mezőbe visszaáll a fókusz (jobb felhasználói élmény)
     nameInput.focus();
 }
 
@@ -50,8 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
     inputs.forEach(input => {
         input.addEventListener("keypress", function (event) {
             if (event.key === "Enter") {
-                event.preventDefault(); // Megakadályozza az oldal újratöltését
-                addRow(); // Meghívja az addRow() függvényt
+                event.preventDefault(); 
+                addRow();
             }
         });
     });
@@ -77,7 +76,7 @@ let sortDirection = {};
 function sortTable(columnIndex) {
     let table = document.getElementById("dataTable");
     let tbody = table.getElementsByTagName("tbody")[0];
-    let rows = Array.from(tbody.getElementsByTagName("tr")); // Csak a <tbody>-ban lévő sorokat vesszük figyelembe!
+    let rows = Array.from(tbody.getElementsByTagName("tr"));
     let headers = table.getElementsByTagName("th");
 
     if (!sortDirection[columnIndex]) {
@@ -90,7 +89,6 @@ function sortTable(columnIndex) {
         let cellA = rowA.cells[columnIndex];
         let cellB = rowB.cells[columnIndex];
 
-        // Ha valamelyik cella undefined (pl. hiányzó oszlop miatt), térjen vissza 0-val
         if (!cellA || !cellB) return 0;
 
         let textA = cellA.innerText.trim();
