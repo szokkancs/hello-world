@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 y: {
                     beginAtZero: true,
                     min: 0,
-                    max: 100, // Alapértelmezett maximum érték
+                    max: 100,
                     ticks: {
                         stepSize: 1,
                         font: {
@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // **Tárolt adatok betöltése localStorage-ból**
     function loadStoredData() {
         let storedData = localStorage.getItem("chartTable");
         if (storedData) {
@@ -71,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // **Tárolja az adatokat localStorage-ba**
     function saveData() {
         let rows = document.querySelectorAll("#chartTable tbody tr");
         let tableData = [];
@@ -88,17 +86,13 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("chartTable", JSON.stringify(tableData));
     }
 
-    // **Amikor egy sorra kattintasz, frissül a diagram és kiemelődik**
     window.updateChart = function (row) {
         let rowData = Array.from(row.children).slice(1).map(td => parseInt(td.textContent) || 0);
 
-        // **Előző kiválasztott sor háttérszínének eltávolítása**
         document.querySelectorAll("#chartTable tbody tr").forEach(tr => tr.classList.remove("selected"));
 
-        // **Új sor kijelölése és háttérszín beállítása**
         row.classList.add("selected");
 
-        // **Y tengely skála dinamikus beállítása**
         let maxValue = Math.max(...rowData) + 5;
         myChart.options.scales.y.max = maxValue;
 
@@ -106,27 +100,24 @@ document.addEventListener("DOMContentLoaded", function () {
         myChart.update();
     };
 
-    // **Ha egy cellát módosítasz, azonnal frissítse a diagramot és mentse az adatokat**
     document.querySelectorAll("#chartTable tbody td:not(:first-child)").forEach(cell => {
         cell.setAttribute("contenteditable", "true");
 
         cell.addEventListener("input", function () {
             let row = this.parentElement;
             updateChart(row);
-            saveData(); // Adatok mentése
+            saveData();
         });
 
-        // **Enter lenyomásra fixálja az adatokat és menti**
         cell.addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
                 event.preventDefault();
-                this.blur(); // Kilép a szerkesztési módból
-                saveData(); // Mentés
+                this.blur();
+                saveData();
             }
         });
     });
 
-    // **Betöltéskor az első sor legyen aktív**
     loadStoredData();
     updateChart(document.querySelector("tbody tr"));
 });

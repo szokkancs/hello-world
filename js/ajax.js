@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetchData(); // Adatok betöltése az oldal megnyitásakor
+    fetchData();
 });
 
 const API_URL = "http://gamf.nhely.hu/ajax2/";
-const CODE = "HI20V9abcd"; // Egyéni kód
+const CODE = "HI20V9abcd";
 
-// 🔹 1. ADATOK LEKÉRÉSE ÉS MEGJELENÍTÉSE
 function fetchData() {
     let table = document.querySelector("#ajaxtable");
     let tableBody = table.querySelector("tbody");
@@ -15,7 +14,7 @@ function fetchData() {
         table.appendChild(tableBody);
     }
 
-    tableBody.innerHTML = "<tr><td colspan='5'>🔄 Betöltés...</td></tr>"; // Ideiglenes szöveg betöltés alatt
+    tableBody.innerHTML = "<tr><td colspan='5'>🔄 Betöltés...</td></tr>";
 
     let formData = new FormData();
     formData.append("op", "read");
@@ -56,7 +55,6 @@ function fetchData() {
     });
 }
 
-// 🔹 2. ÚJ ADAT LÉTREHOZÁSA
 function createData() {
     let name = document.getElementById("createName").value.trim();
     let height = document.getElementById("createHeight").value.trim();
@@ -95,7 +93,6 @@ function createData() {
     });
 }
 
-// 🔹 3. ADAT MÓDOSÍTÁSA
 function updateData() {
     let id = document.getElementById("updateId").value.trim();
     let name = document.getElementById("updateName").value.trim();
@@ -133,7 +130,6 @@ function updateData() {
     .catch(error => console.error("⚠️ Hiba:", error));
 }
 
-// 🔹 4. ADAT TÖRLÉSE
 function deleteData(id) {
     if (!confirm("🗑️ Biztosan törlöd az ID " + id + " rekordot?")) return;
 
@@ -160,7 +156,6 @@ function deleteData(id) {
     .catch(error => console.error("⚠️ Hiba:", error));
 }
 
-// 🔹 5. ADAT LEKÉRDEZÉSE MÓDOSÍTÁSHOZ
 function getDataForId() {
     let id = document.getElementById("updateId").value.trim();
 
