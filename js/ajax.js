@@ -15,7 +15,7 @@ function fetchData() {
         table.appendChild(tableBody);
     }
 
-    tableBody.innerHTML = "<tr><td colspan='5'>🔄 Betöltés...</td></tr>"; // Ideiglenes szöveg betöltés alatt
+    tableBody.innerHTML = "<tr><td colspan='5'>🔄 Betöltés...</td></tr>";
 
     let formData = new FormData();
     formData.append("op", "read");
