@@ -19,6 +19,7 @@
             <li><a href="chart.html">Chart</a></li>
             <li><a href="ajax.html">AJAX Menü</a></li>
             <li><a href="oojs.html">OOJS Menü</a></li>
+            <li><a href="react.html">React Menü</a></li>
             <li class="dropdown">
                 <a href="#">HTML5 API ▼</a>
                 <ul class="dropdown-content">
@@ -35,14 +36,30 @@
     </nav>
     
     <main>
-        <h1>HTML5 API - Minta oldal</h1>
-        <p>Ez az oldal bemutatja a HTML5 API működését.</p>
-
         <section>
-            <h2>API bemutatása</h2>
-            <p>Itt lesz a konkrét API működésének leírása és példák.</p>
+            <h1>Valós idejű óra (SSE)</h1>
+            <p>Idő a szervertől:</p>
+            <p id="time">–</p>
         </section>
     </main>
+    <script>
+        function updateTime() {
+            const options = {
+                timeZone: 'Europe/Amsterdam',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            };
+            const now = new Date().toLocaleString('hu-HU', options);
+            document.getElementById("time").innerText = now;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
     <footer>
         <p>Készítette: Szokolai János Dániel & Pécsy Szabolcs | HI20V9 & ??????</p>
     </footer>

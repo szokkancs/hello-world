@@ -4,7 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML5 API - Minta oldal</title>
     <link rel="stylesheet" href="css/Style.css">
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        #counter { font-size: 48px; margin: 20px; }
+      </style>
     <script src="js/menu.js" defer></script>
+    <script src="js/worker.js" defer></script>
 </head>
 <body>
     <header>
@@ -19,6 +24,7 @@
             <li><a href="chart.html">Chart</a></li>
             <li><a href="ajax.html">AJAX Menü</a></li>
             <li><a href="oojs.html">OOJS Menü</a></li>
+            <li><a href="react.html">React Menü</a></li>
             <li class="dropdown">
                 <a href="#">HTML5 API ▼</a>
                 <ul class="dropdown-content">
@@ -33,16 +39,37 @@
             </li>
         </ul>
     </nav>
-    
     <main>
-        <h1>HTML5 API - Minta oldal</h1>
-        <p>Ez az oldal bemutatja a HTML5 API működését.</p>
-
         <section>
-            <h2>API bemutatása</h2>
-            <p>Itt lesz a konkrét API működésének leírása és példák.</p>
+            <h1>🔁 Web Worker Számláló</h1>
+            <div id="counter">0</div>
+            <button onclick="startCounter()">▶️ Indítás</button>
+            <button onclick="stopCounter()">⏹️ Leállítás</button>
         </section>
     </main>
+    <script>
+    let worker;
+
+function startCounter() {
+  if (typeof(Worker) !== "undefined") {
+    if (!worker) {
+      worker = new Worker("worker.js");
+      worker.onmessage = function(e) {
+        document.getElementById("counter").innerText = e.data;
+      };
+    }
+  } else {
+    alert("A böngésződ nem támogatja a Web Workereket.");
+  }
+}
+
+function stopCounter() {
+  if (worker) {
+    worker.terminate();
+    worker = null;
+  }
+}
+    </script>
     <footer>
         <p>Készítette: Szokolai János Dániel & Pécsy Szabolcs | HI20V9 & ??????</p>
     </footer>
