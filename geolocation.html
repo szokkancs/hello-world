@@ -35,14 +35,34 @@
     </nav>
     
     <main>
-        <h1>HTML5 API - Minta oldal</h1>
-        <p>Ez az oldal bemutatja a HTML5 API működését.</p>
-
         <section>
-            <h2>API bemutatása</h2>
-            <p>Itt lesz a konkrét API működésének leírása és példák.</p>
+            <h1>Current Location</h1>
+            <button onclick="getLocation()">Show My Location</button>
+            <div id="map" style="width:100%;height:400px;margin-top:10px;"></div>
         </section>
     </main>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const map = document.getElementById("map");
+            map.innerHTML = `<iframe
+                width="100%"
+                height="400"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps?q=${lat},${lon}&hl=hu&z=14&output=embed"
+                allowfullscreen>
+            </iframe>`;
+        }
+    </script>
     <footer>
         <p>Készítette: Szokolai János Dániel & Pécsy Szabolcs | HI20V9 & ??????</p>
     </footer>
