@@ -81,25 +81,16 @@
             <h1 style="text-align:center;">🧩 Puzzle Drag & Drop</h1>
 
             <div class="game-board">
-                <!-- Kirakó elemek -->
                 <div class="piece" id="red" draggable="true" style="background-color: red;">Piros</div>
                 <div class="piece" id="blue" draggable="true" style="background-color: blue;">Kék</div>
                 <div class="piece" id="yellow" draggable="true" style="background-color: gold;">Sárga</div>
             </div>
         
             <div class="game-board">
-                <!-- Cél mezők -->
                 <div class="slot" data-color="red">?</div>
                 <div class="slot" data-color="blue">?</div>
                 <div class="slot" data-color="yellow">?</div>
             </div>
-=======
-        <h1>Drag & drop</h1>
-        <p>Drag & drop</p>
-
-        <section>
-            <h2>Drag & drop</h2>
-            <p>Drag & drop</p>
         </section>
     </main>
     <script>
@@ -133,15 +124,16 @@
                 if (droppedId === targetColor) {
                     slot.textContent = dragged.textContent;
                     slot.classList.add("matched");
-                    dragged.remove(); // sikeres illesztés, darab eltűnik
-                } else {
+                    dragged.remove();
+                } else 
+                {
                     alert("Nem jó helyre tetted! 😅");
                 }
             });
         });
     </script>
     <footer>
-        <p>Készítette: Szokolai János Dániel & Pécsy Szabolcs | HI20V9 & ??????</p>
+        <p>Készítette: Szokolai János Dániel & Pécsy Szabolcs | HI20V9 & EUM17E</p>
     </footer>
 </body>
 </html>
